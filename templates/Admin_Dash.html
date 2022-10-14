@@ -1,0 +1,107 @@
+<html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<head>
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css">
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0ce2bf;">
+    <a class="navbar-brand ml-1 mr-5" href="/" style="font-size:35px ;">V_Manage</a>
+    <ul class="navbar-nav ">
+
+        <li class="nav-item ml-5 mr-5 mr-auto ">
+            ADMIN <a class="text-danger mr-lg-5"> <strong>Hi,{{adpro.firstname}}</strong></a>
+        </li>
+
+        <li class="nav-item ml-5 mr-5 mr-auto ">
+            <a class="text-primary " href="{% url 'Admin_logout' %}"> <strong> Logout</strong></a>
+        </li>
+
+    </ul>
+</nav>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card p-3 mt-3">
+                <center>
+                    <h1 class="text">VEHICLE MANAGEMENT SYSTEM</h1>
+
+                    <hr>
+
+                </center>
+
+                <div class="table-responsive">
+
+                    <table class="table table-striped ">
+                        <thead>
+
+                            <tr class="bg-secondary text-light">
+                                <th>SL.NO</th>
+                                <th>VEHICLE NUMBER</th>
+                                <th>VEHICLE TYPE</th>
+                                <th>VEHICLE MODAL</th>
+                                <th>VEHICLE DESCRIPTION</th>
+                                <th>ACTION</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in vehicle %}
+
+
+
+                            <tr>
+
+                                <td>{{forloop.counter}}</td>
+                                <td>{{i.vehiclenumber}}</td>
+                                <td>{{i.vehicletype}}</td>
+                                <td>{{i.vehiclemodal}}</td>
+                                <td>{{i.vehicledescription}}</td>
+
+
+                                <td>
+                                    <a href="{% url 'Admin_edit' i.id %}">
+                                        <button type="button" class='btn btn-success w-90 mt-3 mb-4'>
+                                            EDIT
+                                        </button>
+                                    </a>
+
+                                </td>
+
+
+
+
+                            </tr>
+                            {% endfor%}
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
